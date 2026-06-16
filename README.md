@@ -88,7 +88,7 @@ aws iam delete-policy \
 ```
 # DELETE OIDC PROVDIER
 2. Delete OIDC Provider
-```
+
 To find the OIDC provider
 ```
 aws iam list-open-id-connect-providers
