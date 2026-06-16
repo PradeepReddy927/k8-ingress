@@ -109,7 +109,5 @@ aws iam delete-open-id-connect-provider \
 ```
 Verify deletion
 ```
-
-```
 aws iam list-open-id-connect-providers
 ```
