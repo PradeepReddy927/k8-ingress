@@ -55,7 +55,7 @@ kubectl get pods -n kube-system
 ----------
 
 # DELETION PART
- SERVICE ACCOUNT TERINATION
+ SERVICE ACCOUNT TERMINATION
 1. Disable Termination Protection
 ```
 aws cloudformation update-termination-protection \
