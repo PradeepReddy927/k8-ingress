@@ -1,3 +1,4 @@
+# INSTALLATION PART
 1.  Install OIDC Provider
 ``` 
 eksctl utils associate-iam-oidc-provider \
@@ -72,7 +73,7 @@ aws cloudformation wait stack-delete-complete \
   --stack-name eks
 ```
 ------
-
+# DELETION PART
 1. Delete IAM Policy
 First get the policy ARN
 ```
