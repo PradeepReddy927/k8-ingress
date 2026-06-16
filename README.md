@@ -50,3 +50,25 @@ check drivers are running
 ```
 kubectl get pods -n kube-system
 ```
+
+----------
+
+1. Disable Termination Protection
+```
+aws cloudformation update-termination-protection \
+  --no-enable-termination-protection \
+  --stack-name eksctl-roboshop-dev-addon-iamserviceaccount-kube-system-aws-load-balancer-controller \
+  --region us-east-1
+```
+2. Delete the Stack
+```
+aws cloudformation delete-stack \
+  --stack-name eksctl-roboshop-dev-addon-iamserviceaccount-kube-system-aws-load-balancer-controller \
+  --region us-east-1
+```
+3. Wait for Deletion
+```
+aws cloudformation wait stack-delete-complete \
+  --stack-name eks
+```
+
