@@ -54,6 +54,8 @@ kubectl get pods -n kube-system
 
 ----------
 
+# DELETION PART
+ SERVICE ACCOUNT TERINATION
 1. Disable Termination Protection
 ```
 aws cloudformation update-termination-protection \
@@ -73,7 +75,7 @@ aws cloudformation wait stack-delete-complete \
   --stack-name eks
 ```
 ------
-# DELETION PART
+# DELETE IAM POLICY
 1. Delete IAM Policy
 First get the policy ARN
 ```
@@ -84,6 +86,7 @@ Then delete the policy
 aws iam delete-policy \
   --policy-arn arn:aws:iam::267834697821:policy/AWSLoadBalancerControllerIAMPolicy
 ```
+# DELETE OIDC PROVDIER
 2. Delete OIDC Provider
 ```
 To find the OIDC provider
@@ -107,3 +110,18 @@ Verify deletion
 ```
 aws iam list-open-id-connect-providers
 ```
+# HELM DELETION
+remove the Helm repository named eks run
+```
+helm repo remove eks
+```
+or 
+```
+helm repo rm eks
+```
+```
+helm repo list
+```
+
+
+
