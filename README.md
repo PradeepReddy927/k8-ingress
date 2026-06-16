@@ -83,12 +83,7 @@ Then delete the policy
 aws iam delete-policy \
   --policy-arn arn:aws:iam::267834697821:policy/AWSLoadBalancerControllerIAMPolicy
 ```
-2. OIDC Provider
-```
-eksctl utils associate-iam-oidc-provider \
-  --region us-east-1 \
-  --cluster roboshop-dev \
-  --approve
+2. Delete OIDC Provider
 ```
 To find the OIDC provider
 ```
