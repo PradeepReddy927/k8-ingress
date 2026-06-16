@@ -71,4 +71,45 @@ aws cloudformation delete-stack \
 aws cloudformation wait stack-delete-complete \
   --stack-name eks
 ```
+------
 
+1. Delete IAM Policy
+First get the policy ARN
+```
+aws iam list-policies --scope Local
+```
+Then delete the policy
+```
+aws iam delete-policy \
+  --policy-arn arn:aws:iam::267834697821:policy/AWSLoadBalancerControllerIAMPolicy
+```
+2. OIDC Provider
+```
+eksctl utils associate-iam-oidc-provider \
+  --region us-east-1 \
+  --cluster roboshop-dev \
+  --approve
+```
+To find the OIDC provider
+```
+aws iam list-open-id-connect-providers
+```
+Get details
+```
+aws iam get-open-id-connect-provider \
+  --open-id-connect-provider-arn <OIDC_PROVIDER_ARN>
+```
+Delete it
+```
+aws iam delete-open-id-connect-provider \
+  --open-id-connect-provider-arn <OIDC_PROVIDER_ARN>
+
+aws iam delete-open-id-connect-provider \
+  --open-id-connect-provider-arn arn:aws:iam::267834697821:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/790C3712534B7A926124C8CA2CF4A389  
+```
+Verify deletion
+```
+
+```
+aws iam list-open-id-connect-providers
+```
